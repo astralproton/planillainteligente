@@ -1,0 +1,22 @@
+**Imagen Hero (Banner Principal)**:
+
+- Dimensiones: 600px × 500px
+- Formato: JPG o PNG
+- Aspecto: Horizontal (proporción aproximada 6:5)
+
+
+
+**Imagen del Presidente**:
+
+- Dimensiones: 300px × 400px
+- Formato: JPG o PNG
+- Aspecto: Vertical (proporción 3:4)
+
+
+
+**Imágenes de Miembros del Equipo**:
+
+- Dimensiones: 150px × 150px
+- Formato: JPG o PNG
+- Aspecto: Cuadrado (1:1)
+- Nota: Estas imágenes se mostrarán en círculos, así que lo ideal es que los rostros estén centrados.
