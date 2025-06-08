@@ -3,445 +3,807 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlanillaInteligente</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+    <title>PlanillaInteligente - Campaña Electoral CIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="shortcut icon" href="PIGLOGO2.png" />
 </head>
 <body>
+    <!-- Notificaciones -->
+    <div id="notifications-container"></div>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">🏆</div>
+            <div class="loading-text">Cargando el futuro del CIO...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header>
         <nav>
-            <img src="PIGLOGO2.png" alt="Imagen de campaña" class="">
-            <div class="logo">#PlanillaInteligenteGanadora</div>
-            <div class="hamburger">
+            <div class="nav-brand">
+                <img src="PIGLOGO.png" alt="Logo PIG" class="nav-logo">
+                <div class="logo">#PlanillaInteligenteGanadora</div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
                 <div class="line"></div>
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
             <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#qns">¿Quienes Somos?</a></li>
-                <li><a href="#presidente">Presidente</a></li>
-                <li><a href="#equipo">Nuestro Equipo</a></li>
-                <li><a href="#propuestas">Propuestas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#presidente" class="nav-link">Candidato</a></li>
+                <li><a href="#equipo" class="nav-link">Equipo</a></li>
+                <li><a href="#propuestas" class="nav-link">Propuestas</a></li>
+                <li><a href="#galeria" class="nav-link">Galería</a></li>
+                <li><a href="#quiz" class="nav-link">Quiz</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section id="inicio" class="hero">
+        <div class="hero-background">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        
         <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-trophy"></i>
+                <span>La mejor opción para el CIO</span>
+            </div>
             <h1>Juntos por el <span class="highlight">CIO de tus Sueños</span></h1>
-            <p>¡Transformando nuestra escuela con ideas frescas y un compromiso ejemplar!</p>
-            <button class="qns-button">¿Quienes Somos?</button>
-            <button class="cta-button">¡Conoce nuestras propuestas!</button>
-            <br/>
-            <br/>   
-            <button class="presidente-button">¡Conoce a nuestro candidato!</button>
+            <p class="hero-subtitle">¡Transformando nuestra escuela con ideas frescas y un compromiso ejemplar!</p>
+            
+            <div class="hero-buttons">
+                <button class="cta-button primary" onclick="scrollToSection('presidente')">
+                    <i class="fas fa-user"></i>
+                    Conoce al Candidato
+                </button>
+                <button class="cta-button secondary" onclick="scrollToSection('propuestas')">
+                    <i class="fas fa-lightbulb"></i>
+                    Nuestras Propuestas
+                </button>
+                <button class="cta-button tertiary" onclick="openVotingModal()">
+                    <i class="fas fa-vote-yea"></i>
+                    ¡Votar Ahora!
+                </button>
+            </div>
         </div>
-        <div class="hero-image-container">
-            <img src="PIGLOGO.png" alt="Imagen de campaña" class="hero-image">
-        </div>
-    </section>
-
-    <section id="qns" class="qns">
-        <h2>¿Quienes Somos?</h2>
-        <div class="proposal-container">
-            <div class="proposal-card">
-                <div class="proposal-icon">PlanillaInteligenteGanadora</div>
-                <p>Somos una planilla que busca mejorar nuestra institucion educativa, con propuestas llamativas y un compromiso ejemplar.</p>
+        
+        <div class="hero-visual">
+            <div class="hero-image-container">
+                <img src="PIGLOGO.png" alt="Campaña Electoral" class="hero-image">
             </div>
         </div>
     </section>
 
+    <!-- Sección del Presidente -->
     <section id="presidente" class="president">
-        <div class="president-info">
-            <h2>Nuestro Candidato a Presidente</h2>
+        <div class="container">
             <div class="president-content">
-                <div class="president-image-container">
-                    <img src="perf/Santiago1.jpg" alt="Carlos Santiago Lemus Barrón" class="president-image">
+                <div class="president-visual">
+                    <div class="president-image-container">
+                        <img src="perfnorez/Santiago.jpg" alt="Carlos Santiago Lemus Barrón" class="president-image">
+                        <div class="image-overlay">
+                            <button class="profile-action" onclick="openProfileModal()">
+                                <i class="fas fa-user-circle"></i>
+                                Ver Perfil Completo
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="achievements">
+                        <div class="achievement-item">
+                            <i class="fas fa-medal"></i>
+                            <span>Mejor Promedio 2023</span>
+                        </div>
+                        <div class="achievement-item">
+                            <i class="fas fa-users"></i>
+                            <span>Líder Estudiantil</span>
+                        </div>
+                        <div class="achievement-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Voluntario Social</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="president-text">
+                
+                <div class="president-info">
                     <h3>Carlos Santiago Lemus Barrón</h3>
-                    <p class="president-quote">"Soy un joven optimista y creo en tu derecho de ser feliz."</p>
-                    <p>Carlos es un estudiante de excelencia académica con una visión clara para mejorar nuestra institución. Su compromiso con la educación y el bienestar estudiantil lo convierten en el mejor candidato para representarnos.</p>
-                    <button class="bio-button">Leer biografía completa</button>
+                    <p class="president-quote">
+                        <i class="fas fa-quote-left"></i>
+                        "Soy un joven optimista y creo en tu derecho de ser feliz."
+                        <i class="fas fa-quote-right"></i>
+                    </p>
+                    
+                    <p class="president-description">
+                        Carlos es un estudiante de excelencia académica con una visión clara para mejorar nuestra institución. Su compromiso con la educación y el bienestar estudiantil lo convierten en el mejor candidato para representarnos.
+                    </p>
+                    
+                    <!-- Skills del candidato -->
+                    <div class="skills-section">
+                        <h4>Habilidades de Liderazgo</h4>
+                        <div class="skill-item">
+                            <span>Comunicación</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Trabajo en Equipo</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Innovación</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Compromiso</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 98%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="president-actions">
+                        <button class="action-btn primary" onclick="openBioModal()">
+                            <i class="fas fa-book"></i>
+                            Biografía Completa
+                        </button>
+                        <button class="action-btn secondary" onclick="scrollToSection('propuestas')">
+                            <i class="fas fa-lightbulb"></i>
+                            Ver Propuestas
+                        </button>
+                        <button class="action-btn tertiary" onclick="openInterviewModal()">
+                            <i class="fas fa-video"></i>
+                            Ver Entrevista
+                        </button>
+                        <button class="action-btn tertiary" onclick="openProfileModal()">
+                            <i class="fas fa-user-circle"></i>
+                            Ver Perfil Completo
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Sección del Equipo -->
     <section id="equipo" class="team">
-        <h2>Nuestro Equipo</h2>
-        
-        <div class="team-category">
-            <h3>Directiva Principal</h3>
-            <div class="team-members">
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Santiago2.jpg" alt="Carlos Santiago Lemus Barrón" class="member-image">
+        <div class="container">
+            <center>
+            <h2>Nuestro Equipo</h2>
+            </center>
+            
+            <div class="team-category">
+                <h3>Directiva Principal</h3>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Santiago2.jpg" alt="Carlos Santiago Lemus Barrón" class="member-image">
+                        </div>
+                        <h4>Carlos Santiago Lemus Barrón</h4>
+                        <p>Presidente</p>
+                        <p class="member-quote">"Soy un joven optimista y creo en tu derecho de ser feliz."</p>
                     </div>
-                    <h4>Carlos Santiago Lemus Barrón</h4>
-                    <p>Presidente</p>
-                    <p class="president-quote">"Soy un joven optimista y creo en tu derecho de ser feliz."</p>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Alexa.jpg" alt="Alexa Jaqueline García Michelle" class="member-image">
+                        </div>
+                        <h4>Alexa Jaqueline García Michelle</h4>
+                        <p>Vicepresidenta</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Ariana.jpg" alt="Ariana Sofía Guadalupe Rivera Ramírez" class="member-image">
+                        </div>
+                        <h4>Ariana Sofía Guadalupe Rivera Ramírez</h4>
+                        <p>Secretaria</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Iker.jpg" alt="Iker Santiago Sandoval Chávez" class="member-image">
+                        </div>
+                        <h4>Iker Santiago Sandoval Chávez</h4>
+                        <p>Tesorero</p>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Alexa.jpg" alt="Alexa Jaqueline García Michelle" class="member-image">
+            </div>
+            
+            <div class="team-category">
+                <h3>Representantes Culturales</h3>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Maxime.jpg" alt="Maxime Alexander Castro Carrillo" class="member-image">
+                        </div>
+                        <h4>Maxime Alexander Castro Carrillo</h4>
+                        <p>Cultura Artística</p>
                     </div>
-                    <h4>Alexa Jaqueline García Michelle</h4>
-                    <p>Vicepresidenta</p>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Gregorio.jpg" alt="Gregorio Axel Ruesga Alegría" class="member-image">
+                        </div>
+                        <h4>Gregorio Axel Ruesga Alegría</h4>
+                        <p>Cultura Deportiva</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Cesar.jpg" alt="César Eduardo Santana Navarro" class="member-image">
+                        </div>
+                        <h4>César Eduardo Santana Navarro</h4>
+                        <p>Cultura Social</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Isaac.jpg" alt="Isaac Alfredo Partida Oliva" class="member-image">
+                        </div>
+                        <h4>Isaac Alfredo Partida Oliva</h4>
+                        <p>Cultura Cultural</p>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Ariana.jpg" alt="Ariana Sofía Guadalupe Rivera Ramírez" class="member-image">
+            </div>
+
+            <div class="team-category">
+                <h3>Representantes de Casilla</h3>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Alejandro.jpg" alt="Alejandro Flores Ortega" class="member-image">
+                        </div>
+                        <h4>Alejandro Flores Ortega</h4>
+                        <p>Representante 1</p>
                     </div>
-                    <h4>Ariana Sofía Guadalupe Rivera Ramírez</h4>
-                    <p>Secretaria</p>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Ismael.jpg" alt="Ian Ismael Parra Fernández" class="member-image">
+                        </div>
+                        <h4>Ian Ismael Parra Fernández</h4>
+                        <p>Representante 2</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Fabrizio.jpg" alt="Fabrizio Mena Pérez" class="member-image">
+                        </div>
+                        <h4>Fabrizio Mena Pérez</h4>
+                        <p>Representante 3</p>
+                    </div>
                 </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Iker.jpg" alt="Iker Santiago Sandoval Chávez" class="member-image">
+            </div>
+
+            <div class="team-category">
+                <h3>Equipo de Logística</h3>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Kassandra1.jpg" alt="Kassandra Rivera Díaz" class="member-image">
+                        </div>
+                        <h4>Kassandra Rivera Díaz</h4>
+                        <p>Logística</p>
                     </div>
-                    <h4>Iker Santiago Sandoval Chávez</h4>
-                    <p>Tesorero</p>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/OmarGalav.jpg" alt="Omar Emmanuel Galaviz Cota" class="member-image">
+                        </div>
+                        <h4>Omar Emmanuel Galaviz Cota</h4>
+                        <p>Logística</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-category">
+                <h3>Equipo de Diseño</h3>
+                <div class="team-members">
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Maxime.jpg" alt="Maxime Alexander Castro Carrillo" class="member-image">
+                        </div>
+                        <h4>Maxime Alexander Castro Carrillo</h4>
+                        <p>Diseñador</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Alexa.jpg" alt="Alexa Jaqueline García Michel" class="member-image">
+                        </div>
+                        <h4>Alexa Jaqueline García Michel</h4>
+                        <p>Diseñadora</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Lenny.jpg" alt="Lenny Armando Muro Valdéz" class="member-image">
+                        </div>
+                        <h4>Lenny Armando Muro Valdéz</h4>
+                        <p>Diseñador</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Anna.jpg" alt="Anna Karla Rodríguez Toledo" class="member-image">
+                        </div>
+                        <h4>Anna Karla Rodríguez Toledo</h4>
+                        <p>Diseñadora</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/RenataRuiz.png" alt="Renata Ruiz Martínez" class="member-image">
+                        </div>
+                        <h4>Renata Ruiz Martínez</h4>
+                        <p>Diseñadora</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/Ariana.jpg" alt="Ariana Sofía Guadalupe Rivera Ramírez" class="member-image">
+                        </div>
+                        <h4>Ariana Sofía Guadalupe Rivera Ramírez</h4>
+                        <p>Diseñadora</p>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-image-container">
+                            <img src="perf/OmarGalav.jpg" alt="Omar Emmanuel Galaviz Cota" class="member-image">
+                        </div>
+                        <h4>Omar Emmanuel Galaviz Cota</h4>
+                        <p>Diseñador & Programador Web</p>
+                    </div>
                 </div>
             </div>
         </div>
-        
-                <div class="team-category">
-            <h3>Representantes Culturales</h3>
-            <div class="team-members">
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Maxime.jpg" alt="Maxime Alexander Castro Carrillo" class="member-image">
-                    </div>
-                    <h4>Maxime Alexander Castro Carrillo</h4>
-                    <p>Cultura Artística</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Gregorio.jpg" alt="Gregorio Axel Ruesga Alegría" class="member-image">
-                    </div>
-                    <h4>Gregorio Axel Ruesga Alegría</h4>
-                    <p>Cultura Deportiva</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Cesar.jpg" alt="César Eduardo Santana Navarro" class="member-image">
-                    </div>
-                    <h4>César Eduardo Santana Navarro</h4>
-                    <p>Cultura Social</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Isaac.jpg" alt="Isaac Alfredo Partida Oliva" class="member-image">
-                    </div>
-                    <h4>Isaac Alfredo Partida Oliva</h4>
-                    <p>Cultura Cultural</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="team-category">
-            <h3>Representantes de Casilla</h3>
-            <div class="team-members">
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Alejandro.jpg" alt="Alejandro Flores Ortega" class="member-image">
-                    </div>
-                    <h4>Alejandro Flores Ortega</h4>
-                    <p>Representante 1</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Ismael.jpg" alt="Ian Ismael Parra Fernández" class="member-image">
-                    </div>
-                    <h4>Ian Ismael Parra Fernández</h4>
-                    <p>Representante 2</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Fabrizio.jpg" alt="Fabrizio Mena Pérez" class="member-image">
-                    </div>
-                    <h4>Fabrizio Mena Pérez</h4>
-                    <p>Representante 3</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="team-category">
-            <h3>Equipo de Logística</h3>
-            <div class="team-members">
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Kassandra.jpg" alt="Kassandra Rivera Díaz" class="member-image">
-                    </div>
-                    <h4>Kassandra Rivera Díaz</h4>
-                    <p>Logística</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/OmarGalav.jpg" alt="Omar Emmanuel Galaviz Cota" class="member-image">
-                    </div>
-                    <h4>Omar Emmanuel Galaviz Cota</h4>
-                    <p>Logística</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="team-category">
-            <h3>Equipo de Diseño</h3>
-            <div class="team-members">
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Maxime.jpg" alt="Maxime Alexander Castro Carrillo" class="member-image">
-                    </div>
-                    <h4>Maxime Alexander Castro Carrillo</h4>
-                    <p>Diseñador</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Alexa.jpg" alt="Alexa Jaqueline García Michel" class="member-image">
-                    </div>
-                    <h4>Alexa Jaqueline García Michel</h4>
-                    <p>Diseñadora</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Lenny.jpg" alt="Lenny Armando Muro Valdéz" class="member-image">
-                    </div>
-                    <h4>Lenny Armando Muro Valdéz</h4>
-                    <p>Diseñador</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Anna.jpg" alt="Anna Karla Rodríguez Toledo" class="member-image">
-                    </div>
-                    <h4>Anna Karla Rodríguez Toledo</h4>
-                    <p>Diseñadora</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/RenataRuiz.png" alt="Renata Ruiz Martínez" class="member-image">
-                    </div>
-                    <h4>Renata Ruiz Martínez</h4>
-                    <p>Diseñadora</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/Ariana.jpg" alt="Ariana Sofía Guadalupe Rivera Ramírez" class="member-image">
-                    </div>
-                    <h4>Ariana Sofía Guadalupe Rivera Ramírez</h4>
-                    <p>Diseñadora</p>
-                </div>
-                <div class="member-card">
-                    <div class="member-image-container">
-                        <img src="perf/OmarGalav.jpg" alt="Omar Emmanuel Galaviz Cota" class="member-image">
-                    </div>
-                    <h4>Omar Emmanuel Galaviz Cota</h4>
-                    <p>Diseñador & Programador Web</p>
-                </div>
-            </div>
-        </div>
-
-
     </section>
 
+    <!-- Sección de Propuestas Unificada -->
     <section id="propuestas" class="proposals">
-        <h2>Nuestras Propuestas Culturales</h2>
-        <div class="proposal-container">
-            <div class="proposal-card">
-                <div class="proposal-icon">1</div>
-                <h3>Feria de las culturas extranjeras.</h3>
-                <p>Consiste en una feria en la que se expone y se habla sobre las culturas de otros paises. Exponiendo su cultura, tradiciones, vestimenta, comida etc...</p>
+        <div class="container">
+            <center>
+            <h2><i class="fas fa-lightbulb"></i> Nuestras Propuestas</h2>
+            <p class="proposals-intro">Conoce todas nuestras propuestas organizadas por áreas de impacto para transformar el CIO</p>
+            </center>
+            
+            <!-- Filtros de propuestas -->
+            <div class="proposal-filters">
+                <button class="filter-btn active" data-category="all">
+                    <i class="fas fa-th"></i> Todas
+                </button>
+                <button class="filter-btn" data-category="cultural">
+                    <i class="fas fa-globe"></i> Culturales
+                </button>
+                <button class="filter-btn" data-category="artisticas">
+                    <i class="fas fa-palette"></i> Artísticas
+                </button>
+                <button class="filter-btn" data-category="deportivas">
+                    <i class="fas fa-running"></i> Deportivas
+                </button>
+                <button class="filter-btn" data-category="sociales">
+                    <i class="fas fa-users"></i> Sociales
+                </button>
             </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">2</div>
-                <h3>Feria de las ciencias y tecnologias.</h3>
-                <p>Una feria donde se invita a los estudiantes a participar y a fascinarse por las ciencias y tecnologias. Exponiendo avances tecnologicos y experimentos cientificos.</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">3</div>
-                <h3>Club de lectura</h3>
-                <p>Un club de lectura en donde los estudiantes seleccionan libros, los lean y discutan. Esto a modo de club.</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">4</div>
-                <h3>Visitas a museos y lugares educativos</h3>
-                <p>Promover y negociar la visita a museos e instalaciones educativas, es decir, lugares de los cuales los alumnos puedan llevarse un aprendizaje cultural.</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">5</div>
-                <h3>Conferencias sobre temas culturales</h3>
-                <p>Conferencias en las que se hablen de temas relacionados a la cultura</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">6</div>
-                <h3>Fomento de dialogo.</h3>
-                <p>El fomentar la expresion libre de los alumnos para que los mismos se expongan temas los unos a los otros</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="propuestasart" class="proposals">
-        <h2>Nuestras Propuestas Artisticas</h2>
-        <div class="proposal-container">
-            <div class="proposal-card">
-                <div class="proposal-icon">1</div>
-                <h3>Talleres Artisticos</h3>
-                <p>Talleres Recreativos para los y las alumnos/as, tales como:</p>
-                <p>Arte en Chaquira</p>
-                <p>Escultura</p>
-                <p>Pintura</p>
-                <p>Dibujo</p>
+            <!-- Propuestas Culturales -->
+            <div class="proposal-category" data-category="cultural">
+                <h3><i class="fas fa-globe"></i> Propuestas Culturales</h3>
+                <div class="proposal-container">
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>1</i>
+                        </div>
+                        <h4>Feria de las culturas extranjeras</h4>
+                        <p>Consiste en una feria en la que se expone y se habla sobre las culturas de otros países. Exponiendo su cultura, tradiciones, vestimenta, comida etc...</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Diversidad</span>
+                            <span class="tag">Intercultural</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>2</i>
+                        </div>
+                        <h4>Feria de las ciencias y tecnologías</h4>
+                        <p>Una feria donde se invita a los estudiantes a participar y a fascinarse por las ciencias y tecnologías. Exponiendo avances tecnológicos y experimentos científicos.</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Ciencia</span>
+                            <span class="tag">Tecnología</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>3</i>
+                        </div>
+                        <h4>Club de lectura</h4>
+                        <p>Un club de lectura en donde los estudiantes seleccionan libros, los lean y discutan. Esto a modo de club.</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Literatura</span>
+                            <span class="tag">Debate</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>4</i>
+                        </div>
+                        <h4>Visitas a museos y lugares educativos</h4>
+                        <p>Promover y negociar la visita a museos e instalaciones educativas, es decir, lugares de los cuales los alumnos puedan llevarse un aprendizaje cultural.</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Educación</span>
+                            <span class="tag">Excursiones</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>5</i>
+                        </div>
+                        <h4>Conferencias sobre temas culturales</h4>
+                        <p>Conferencias en las que se hablen de temas relacionados a la cultura</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Conferencias</span>
+                            <span class="tag">Cultura</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>6</i>
+                        </div>
+                        <h4>Fomento de diálogo</h4>
+                        <p>El fomentar la expresión libre de los alumnos para que los mismos se expongan temas los unos a los otros</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Diálogo</span>
+                            <span class="tag">Expresión</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">2</div>
-                <h3>Exposiciones y eventos artisticos</h3>
-                <p>Tales como:</p>
-                <p>Eventos teatrales</p>
-                <p>Eventos musicales</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">3</div>
-                <h3>Concurso de Arte</h3>
-                <p>Tales como:</p>
-                <p>Concurso de pintura</p>
-                <p>Concurso de poesia o escultura</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">4</div>
-                <h3>Difusion del Arte</h3>
-                <p>Difunderemos el arte en general de maneras más modernas y sencillas, con metodos como:</p>
-                <p>Redes sociales</p>
-                <p>Periodico mural o revista artistica</p>
-                <p>Paginas Webs</p>
-            </div>
-        </div>
-    </section>
-    
-    <section id="propuestasdeporte" class="proposals">
-        <h2>Nuestras Propuestas Deportivas</h2>
-        <div class="proposal-container">
-            <div class="proposal-card">
-                <div class="proposal-icon">1</div>
-                <h3>Comprar más productos para deporte</h3>
-                <p>Conseguiriamos más productos para las clases de educacion fisica y eventos extracurriculares</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">2</div>
-                <h3>Charlas Motivacionales</h3>
-                <p>Charlas motivacionales para los alumnos y alumnas, con el fin de motivarlos a practicar deporte y a llevar una vida más saludable.</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">3</div>
-                <h3>Invitar a personalidades deportivas a contar su historia o a dar conferencias</h3>
-                <p>Invitaremos a personalidades deportivas a contar su historia o a dar conferencias, para motivar a los alumnos y alumnas a practicar deporte.</p>
-                <p>Con estas practicas podemos hacer torneos de Basquet, Tenis, Volley, Futbol, Tocho, Baseball, Quemados, Combates, Atletismo, Cuatro Bases, Handball etc...</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="propuestassocial" class="proposals">
-        <h2>Nuestras Propuestas Sociales</h2>
-        <div class="proposal-container">
-            <div class="proposal-card">
-                <div class="proposal-icon">1</div>
-                <h3>Organizar más eventos dependieno el dia.</h3>
-                <p>Organizaremos más eventos dependiendo el dia, como el dia del estudiante, el 14 de febrero, Sport Day etc...</p>
+            <!-- Propuestas Artísticas -->
+            <div class="proposal-category" data-category="artisticas">
+                <h3><i class="fas fa-palette"></i> Propuestas Artísticas</h3>
+                <div class="proposal-container">
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>1</i>
+                        </div>
+                        <h4>Talleres Artísticos</h4>
+                        <p>Talleres Recreativos para los y las alumnos/as, para fomentar la creatividad, aprender y desarrollar habilidades artisticas. Algunas actividades que tenemos planeadas son:</p>
+                        <ul class="proposal-list">
+                            <li><strong>Arte en Chaquira</strong> - Técnicas tradicionales mexicanas</li>
+                            <li><strong>Escultura</strong> - Modelado en diferentes materiales</li>
+                            <li><strong>Pintura</strong> - Técnicas clásicas y modernas</li>
+                            <li><strong>Dibujo</strong> - Desde básico hasta avanzado</li>
+                        </ul>
+                        <div class="proposal-tags">
+                            <span class="tag">Creatividad</span>
+                            <span class="tag">Talleres</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>2</i>
+                        </div>
+                        <h4>Exposiciones y eventos artísticos</h4>
+                        <p>Muestras y actividades para difundir el arte y acercalo al publico. Tendremos Exposiciones y eventos artísticos. Tales como:</p>
+                        <ul class="proposal-list">
+                            <li><strong>Eventos teatrales</strong> - Obras estudiantiles</li>
+                            <li><strong>Eventos musicales</strong> - Conciertos y recitales</li>
+                        </ul>
+                        <div class="proposal-tags">
+                            <span class="tag">Teatro</span>
+                            <span class="tag">Música</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>3</i>
+                        </div>
+                        <h4>Concurso de Arte</h4>
+                        <p>Crearemos concursos de arte, son convocatorias para premiar obras artísticas y promover la participación creativa en los estudiantes. Van a haber varios concursos tales como:</p>
+                        <ul class="proposal-list">
+                            <li><strong>Concurso de pintura</strong></li>
+                            <li><strong>Concurso de poesía o escultura</strong></li>
+                        </ul>
+                        <div class="proposal-tags">
+                            <span class="tag">Competencia</span>
+                            <span class="tag">Reconocimiento</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>4</i>
+                        </div>
+                        <h4>Difusión del Arte</h4>
+                        <p>Difundiremos el arte en general de maneras más modernas y sencillas, con métodos como:</p>
+                        <ul class="proposal-list">
+                            <li><strong>Redes sociales</strong></li>
+                            <li><strong>Periódico mural o revista artística</strong></li>
+                            <li><strong>Páginas Webs</strong></li>
+                        </ul>
+                        <div class="proposal-tags">
+                            <span class="tag">Digital</span>
+                            <span class="tag">Promoción</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">2</div>
-                <h3>Aumentar las conferencias</h3>
-                <p>Aumentaremos las conferencias sobre distintos temas para todos los estudiantes, para motivarse, reflexionar y aprender.</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">3</div>
-                <h3>Tener más excursiones</h3>
-                <p>Tendremos más excursiones.</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">4</div>
-                <h3>Podcast semanales para informar sobre cualquier acontecimiento</h3>
-                <p>Crearemos un podcast semanal, para en donde informaremos a los estudiantes sobre los acontecimientos más recientes.</p>
-            </div>
-            <div class="proposal-card">
-                <div class="proposal-icon">5</div>
-                <h3>Crear y mantener actualizado un mural informatibo.</h3>
-                <p>Crearemos un periódico mural, en donde se informará a los estudiantes sobre los acontecimientos más recientes de una manera más visual.</p>
-            </div>
-        </div>
-    </section>
 
-    <section id="contacto" class="contact">
-        <h2>Contáctanos</h2>
-        <div class="contact-container">
-            <div class="contact-form">
-                <h3>Envíanos un mensaje</h3>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required>
+            <!-- Propuestas Deportivas -->
+            <div class="proposal-category" data-category="deportivas">
+                <h3><i class="fas fa-running"></i> Propuestas Deportivas</h3>
+                <div class="proposal-container">
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>1</i>
+                        </div>
+                        <h4>Comprar más productos para deporte</h4>
+                        <p>Adquiriremos mejor material deportivo para mejores actividades recreativas y eventos deportivos, junto a esto, una renovacion a las areas deportivas.</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Equipamiento</span>
+                            <span class="tag">Infraestructura</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="name">Apellido</label>
-                        <input type="text" id="apellido" name="apellido" required>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>2</i>
+                        </div>
+                        <h4>Charlas Motivacionales</h4>
+                        <p>Charlas entusiastas para a los estudiantes del plantel estudantil, con el fin de motivarlos a ejercer una mejor vida saludable.</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Motivación</span>
+                            <span class="tag">Salud</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>3</i>
+                        </div>
+                        <h4>Invitar a personalidades deportivas</h4>
+                        <p>Invitaremos a personalidades deportivas a contar su historia o a dar conferencias, para motivar a los alumnos y alumnas a practicar deporte.</p>
+                        <p><strong>Con estas prácticas podemos hacer torneos de:</strong> Basquet, Tenis, Volley, Futbol, Tocho, Baseball, Quemados, Combates, Atletismo, Cuatro Bases, Handball etc...</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Inspiración</span>
+                            <span class="tag">Torneos</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="name">Numero Telefonico:</label>
-                        <input type="text" id="fon" name="fon" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Enviar Mensaje</button>
-                </form>
+                </div>
             </div>
-            <div class="contact-info">
-                <h3>Información de Contacto</h3>
-                <p><strong>Correo:</strong> campaña@cio.edu.mx</p>
-                <p><strong>Teléfono:</strong> 311 000 La mejor campaña</p>
-                <p><strong>Ubicación:</strong> Colegio Ingles de Occidente, Tepic, Nayarit.</p>
-                <div class="social-media">
-                    <a href="#" class="social-icon"></a>
-                    <a href="#" class="social-icon"></a>
-                    <a href="#" class="social-icon"></a>
-                    <a href="#" class="social-icon"></a>
+
+            <!-- Propuestas Sociales -->
+            <div class="proposal-category" data-category="sociales">
+                <h3><i class="fas fa-users"></i> Propuestas Sociales</h3>
+                <div class="proposal-container">
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>1</i>
+                        </div>
+                        <h4>Organizar más eventos dependiendo el día</h4>
+                        <p>Organizaremos más eventos dependiendo el día, como el día del estudiante, el 14 de febrero, Sport Day etc...</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Eventos</span>
+                            <span class="tag">Celebraciones</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>2</i>
+                        </div>
+                        <h4>Aumentar las conferencias</h4>
+                        <p>Aumentaremos las conferencias sobre distintos temas para todos los estudiantes, para motivarse, reflexionar y aprender.</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Educación</span>
+                            <span class="tag">Reflexión</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>3</i>
+                        </div>
+                        <h4>Tener más excursiones.</h4>
+                        <p>Organizaremos más excursiones educativas y recreativas para fortalecer el aprendizaje y la convivencia.</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Viajes</span>
+                            <span class="tag">Experiencias</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>4</i>
+                        </div>
+                        <h4>Podcast semanales para informar</h4>
+                        <p>Crearemos un podcast semanal, para en donde informaremos a los estudiantes sobre los acontecimientos más recientes.</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Comunicación</span>
+                            <span class="tag">Información</span>
+                        </div>
+                    </div>
+                    <div class="proposal-card">
+                        <div class="proposal-icon">
+                            <i>5</i>
+                        </div>
+                        <h4>Crear y mantener actualizado un mural informativo</h4>
+                        <p>Crearemos un periódico mural, en donde se informará a los estudiantes sobre los acontecimientos más recientes de una manera más visual.</p>
+                        <div class="proposal-tags">
+                            <span class="tag">Visual</span>
+                            <span class="tag">Actualidad</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Galería Interactiva -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2><i class="fas fa-images"></i> Galería de Campaña</h2>
+            
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="PIG">PIG</button>
+            </div>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Las imágenes se cargan dinámicamente -->
+            </div>
+            
+            <button class="load-more-btn" onclick="loadMoreImages()">
+                <i class="fas fa-plus"></i>
+                Cargar Más Fotos
+            </button>
+        </div>
+    </section>
+
+    <!-- Quiz Gamificado -->
+    <section id="quiz" class="quiz">
+        <div class="container">
+            <h2><i class="fas fa-brain"></i> Quiz: ¿Conoces nuestras propuestas?</h2>
+            
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress" id="quizProgress"></div>
+                        </div>
+                        <span class="progress-text">Pregunta <span id="currentQuestion">1</span> de <span id="totalQuestions">10</span></span>
+                    </div>
+                    
+                    <div class="quiz-score">
+                        <i class="fas fa-star"></i>
+                        <span id="score">0</span> puntos
+                    </div>
+                </div>
+                
+                <div class="quiz-content" id="quizContent">
+                    <!-- Contenido del quiz se carga dinámicamente -->
+                </div>
+                
+                <div class="quiz-achievements" id="achievements">
+                    <!-- Logros desbloqueados -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" id="apellido" name="apellido" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fon">Número Telefónico:</label>
+                            <input type="text" id="fon" name="fon" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Enviar Mensaje</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <p><strong>Correo:</strong> campaña@cio.edu.mx</p>
+                    <p><strong>Teléfono:</strong> 311-000-PIG</p>
+                    <p><strong>Ubicación:</strong> CIO, Tepic, Nayarit</p>
+                    <div class="social-media">
+                        <a href="lol.mp4" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="lol.mp4" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="lol.mp4" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="lol.mp4" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modales -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content" id="modalContent">
+            <!-- Contenido dinámico de modales -->
+        </div>
+    </div>
+
+    <!-- Botón de accesibilidad -->
+    <button class="accessibility-btn" onclick="toggleAccessibility()">
+        <i class="fas fa-universal-access"></i>
+    </button>
+
+    <!-- Footer mejorado -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">Para un mejor cio</div>
-            <div class="footer-links">
+            <div class="footer-section">
+                <h3>PlanillaInteligente</h3>
+                <p>Transformando el CIO con ideas innovadoras y compromiso real.</p>
+                <div class="social-media">
+                    <a href="lol.mp4" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="lol.mp4" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="lol.mp4" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="lol.mp4" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#qns">¿Quienes Somos?</a></li>
-                    <li><a href="#presidente">Presidente</a></li>
-                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#presidente">Candidato</a></li>
                     <li><a href="#propuestas">Propuestas</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
                 </ul>
             </div>
-            <div class="footer-social">
-                <a href="#" class="social-icon"></a>
-                <a href="#" class="social-icon"></a>
-                <a href="#" class="social-icon"></a>
-                <a href="#" class="social-icon"></a>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> campaña@cio.edu.mx</p>
+                <p><i class="fas fa-phone"></i> 311-000-PIG</p>
+                <p><i class="fas fa-map-marker-alt"></i> CIO, Tepic, Nayarit</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Nuestro Compromiso</h3>
+                <p>Trabajamos por un CIO mejor, más inclusivo y lleno de oportunidades para todos los estudiantes.</p>
+                <div class="footer-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Propuestas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Miembros</span>
+                    </div>
+                </div>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            <p>&copy; 2025 Omar Galaviz. Todos los derechos reservados.</p>
+            <p>&copy; 2025 PlanillaInteligente. Todos los derechos reservados. | Desarrollado con ❤️ para el CIO</p>
         </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="main.js"></script>
 </body>
 </html>
