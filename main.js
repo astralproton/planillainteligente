@@ -762,7 +762,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Función para manejar errores de carga de imágenes
 document.addEventListener('error', function(e) {
     if (e.target.tagName === 'IMG') {
-        e.target.src = 'https://images.pexels.com/photos/1550336/pexels-photo-1550336.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1';
+        e.target.src = 'PIGLOGO.png';
     }
 }, true);
 
